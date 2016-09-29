@@ -88,7 +88,7 @@
             this.Name = "Welcome";
             this.Text = "Welcome";
             this.ResumeLayout(false);
-
+            System.AppDomain.CurrentDomain.SetData("DataDirectory", System.Environment.CurrentDirectory);
         }
 
         #endregion

@@ -87,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AccountsDBDataSetCompanyName.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountsDBDataSetCompanyName.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +144,17 @@
     <None Include="AccountsDBDataSet.xss">
       <DependentUpon>AccountsDBDataSet.xsd</DependentUpon>
     </None>
+    <None Include="AccountsDBDataSetCompanyName.xsc">
+      <DependentUpon>AccountsDBDataSetCompanyName.xsd</DependentUpon>
+    </None>
+    <None Include="AccountsDBDataSetCompanyName.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AccountsDBDataSetCompanyName.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AccountsDBDataSetCompanyName.xss">
+      <DependentUpon>AccountsDBDataSetCompanyName.xsd</DependentUpon>
+    </None>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -165,12 +181,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AccountsDB.mdf">
+    <Content Include="AppData\AccountsDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="AccountsDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="AppData\AccountsDB_log.ldf">
       <DependentUpon>AccountsDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

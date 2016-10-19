@@ -38,16 +38,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewAccountDetails = new System.Windows.Forms.DataGridView();
+            this.accountsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountsDBDataSet = new AccountApplication.AccountsDBDataSet();
+            this.accountsTableTableAdapter = new AccountApplication.AccountsDBDataSetTableAdapters.AccountsTableTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BillNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.accountsDBDataSet = new AccountApplication.AccountsDBDataSet();
-            this.accountsTableTableAdapter = new AccountApplication.AccountsDBDataSetTableAdapters.AccountsTableTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountDetails)).BeginInit();
@@ -142,18 +143,33 @@
             this.dataGridViewAccountDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAccountDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.ItemName,
             this.dataGridViewTextBoxColumn2,
+            this.BillNumber,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn6});
             this.dataGridViewAccountDetails.DataSource = this.accountsTableBindingSource;
             this.dataGridViewAccountDetails.Location = new System.Drawing.Point(54, 179);
             this.dataGridViewAccountDetails.Name = "dataGridViewAccountDetails";
             this.dataGridViewAccountDetails.ReadOnly = true;
             this.dataGridViewAccountDetails.Size = new System.Drawing.Size(743, 299);
             this.dataGridViewAccountDetails.TabIndex = 6;
+            // 
+            // accountsTableBindingSource
+            // 
+            this.accountsTableBindingSource.DataMember = "AccountsTable";
+            this.accountsTableBindingSource.DataSource = this.accountsDBDataSet;
+            // 
+            // accountsDBDataSet
+            // 
+            this.accountsDBDataSet.DataSetName = "AccountsDBDataSet";
+            this.accountsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // accountsTableTableAdapter
+            // 
+            this.accountsTableTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -162,12 +178,26 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.HeaderText = "Item Name";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "PurchaseDate";
             this.dataGridViewTextBoxColumn2.HeaderText = "Purchase Date";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // BillNumber
+            // 
+            this.BillNumber.DataPropertyName = "BillNumber";
+            this.BillNumber.HeaderText = "Bill Number";
+            this.BillNumber.Name = "BillNumber";
+            this.BillNumber.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -196,27 +226,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Balance (Rs.)";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Notes";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Notes";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // accountsTableBindingSource
-            // 
-            this.accountsTableBindingSource.DataMember = "AccountsTable";
-            this.accountsTableBindingSource.DataSource = this.accountsDBDataSet;
-            // 
-            // accountsDBDataSet
-            // 
-            this.accountsDBDataSet.DataSetName = "AccountsDBDataSet";
-            this.accountsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // accountsTableTableAdapter
-            // 
-            this.accountsTableTableAdapter.ClearBeforeFill = true;
             // 
             // AccountDetails
             // 
@@ -257,11 +266,12 @@
         private AccountsDBDataSetTableAdapters.AccountsTableTableAdapter accountsTableTableAdapter;
         private System.Windows.Forms.ComboBox comboBoxCompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BillNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

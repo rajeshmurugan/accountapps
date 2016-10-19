@@ -291,7 +291,9 @@ namespace AccountApplication {
             
             private global::System.Data.DataColumn columnBalance;
             
-            private global::System.Data.DataColumn columnNotes;
+            private global::System.Data.DataColumn columnItemName;
+            
+            private global::System.Data.DataColumn columnBillNumber;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -376,9 +378,17 @@ namespace AccountApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NotesColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnNotes;
+                    return this.columnItemName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BillNumberColumn {
+                get {
+                    return this.columnBillNumber;
                 }
             }
             
@@ -419,7 +429,7 @@ namespace AccountApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccountsTableRow AddAccountsTableRow(string CompanyName, System.DateTime PurchaseDate, short Quantity, decimal BaseRate, decimal PaidAmount, decimal Balance, string Notes) {
+            public AccountsTableRow AddAccountsTableRow(string CompanyName, System.DateTime PurchaseDate, short Quantity, decimal BaseRate, decimal PaidAmount, decimal Balance, string ItemName, string BillNumber) {
                 AccountsTableRow rowAccountsTableRow = ((AccountsTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CompanyName,
@@ -428,7 +438,8 @@ namespace AccountApplication {
                         BaseRate,
                         PaidAmount,
                         Balance,
-                        Notes};
+                        ItemName,
+                        BillNumber};
                 rowAccountsTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAccountsTableRow);
                 return rowAccountsTableRow;
@@ -463,7 +474,8 @@ namespace AccountApplication {
                 this.columnBaseRate = base.Columns["BaseRate"];
                 this.columnPaidAmount = base.Columns["PaidAmount"];
                 this.columnBalance = base.Columns["Balance"];
-                this.columnNotes = base.Columns["Notes"];
+                this.columnItemName = base.Columns["ItemName"];
+                this.columnBillNumber = base.Columns["BillNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -481,8 +493,10 @@ namespace AccountApplication {
                 base.Columns.Add(this.columnPaidAmount);
                 this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBalance);
-                this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotes);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
+                this.columnBillNumber = new global::System.Data.DataColumn("BillNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillNumber);
                 this.columnCompanyName.AllowDBNull = false;
                 this.columnCompanyName.MaxLength = 2147483647;
                 this.columnPurchaseDate.AllowDBNull = false;
@@ -490,7 +504,8 @@ namespace AccountApplication {
                 this.columnBaseRate.AllowDBNull = false;
                 this.columnPaidAmount.AllowDBNull = false;
                 this.columnBalance.AllowDBNull = false;
-                this.columnNotes.MaxLength = 2147483647;
+                this.columnItemName.MaxLength = 2147483647;
+                this.columnBillNumber.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -699,30 +714,58 @@ namespace AccountApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Notes {
+            public string ItemName {
                 get {
                     try {
-                        return ((string)(this[this.tableAccountsTable.NotesColumn]));
+                        return ((string)(this[this.tableAccountsTable.ItemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'AccountsTable\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'AccountsTable\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAccountsTable.NotesColumn] = value;
+                    this[this.tableAccountsTable.ItemNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNotesNull() {
-                return this.IsNull(this.tableAccountsTable.NotesColumn);
+            public string BillNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccountsTable.BillNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillNumber\' in table \'AccountsTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccountsTable.BillNumberColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNotesNull() {
-                this[this.tableAccountsTable.NotesColumn] = global::System.Convert.DBNull;
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tableAccountsTable.ItemNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetItemNameNull() {
+                this[this.tableAccountsTable.ItemNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBillNumberNull() {
+                return this.IsNull(this.tableAccountsTable.BillNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBillNumberNull() {
+                this[this.tableAccountsTable.BillNumberColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -891,7 +934,8 @@ namespace AccountApplication.AccountsDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BaseRate", "BaseRate");
             tableMapping.ColumnMappings.Add("PaidAmount", "PaidAmount");
             tableMapping.ColumnMappings.Add("Balance", "Balance");
-            tableMapping.ColumnMappings.Add("Notes", "Notes");
+            tableMapping.ColumnMappings.Add("ItemName", "ItemName");
+            tableMapping.ColumnMappings.Add("BillNumber", "BillNumber");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -908,8 +952,8 @@ namespace AccountApplication.AccountsDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CompanyName, PurchaseDate, Quantity, BaseRate, PaidAmount, Balance, Notes " +
-                "FROM dbo.AccountsTable";
+            this._commandCollection[0].CommandText = "SELECT        CompanyName, PurchaseDate, Quantity, BaseRate, PaidAmount, Balance," +
+                " ItemName, BillNumber\r\nFROM            AccountsTable";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

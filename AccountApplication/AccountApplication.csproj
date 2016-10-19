@@ -87,6 +87,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountsDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AccountsDBDataSetCompanyName.cs">
+      <DependentUpon>AccountsDBDataSetCompanyName.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AccountsDBDataSetCompanyName.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

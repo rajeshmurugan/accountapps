@@ -12,9 +12,7 @@
               <DbSource ConnectionRef="AccountsDBConnectionString (Settings)" DbObjectName="dbo.AccountsTable" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        CompanyName, Balance
-FROM            AccountsTable
-ORDER BY PurchaseDate</CommandText>
+                    <CommandText>SELECT     DISTINCT   CompanyName FROM            AccountsTable</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -22,7 +20,6 @@ ORDER BY PurchaseDate</CommandText>
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="CompanyName" DataSetColumn="CompanyName" />
-              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -34,7 +31,7 @@ ORDER BY PurchaseDate</CommandText>
   <xs:element name="AccountsDBDataSetCompanyName" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="AccountsDBDataSetCompanyName" msprop:Generator_UserDSName="AccountsDBDataSetCompanyName">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AccountsTable" msprop:Generator_TableClassName="AccountsTableDataTable" msprop:Generator_TableVarName="tableAccountsTable" msprop:Generator_TablePropName="AccountsTable" msprop:Generator_RowDeletingName="AccountsTableRowDeleting" msprop:Generator_RowChangingName="AccountsTableRowChanging" msprop:Generator_RowEvHandlerName="AccountsTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AccountsTableRowDeleted" msprop:Generator_UserTableName="AccountsTable" msprop:Generator_RowChangedName="AccountsTableRowChanged" msprop:Generator_RowEvArgName="AccountsTableRowChangeEvent" msprop:Generator_RowClassName="AccountsTableRow">
+        <xs:element name="AccountsTable" msprop:Generator_TableClassName="AccountsTableDataTable" msprop:Generator_TableVarName="tableAccountsTable" msprop:Generator_RowChangedName="AccountsTableRowChanged" msprop:Generator_TablePropName="AccountsTable" msprop:Generator_RowDeletingName="AccountsTableRowDeleting" msprop:Generator_RowChangingName="AccountsTableRowChanging" msprop:Generator_RowEvHandlerName="AccountsTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AccountsTableRowDeleted" msprop:Generator_RowClassName="AccountsTableRow" msprop:Generator_UserTableName="AccountsTable" msprop:Generator_RowEvArgName="AccountsTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_UserColumnName="CompanyName">
@@ -44,7 +41,6 @@ ORDER BY PurchaseDate</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

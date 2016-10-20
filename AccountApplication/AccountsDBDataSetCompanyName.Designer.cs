@@ -281,8 +281,6 @@ namespace AccountApplication {
             
             private global::System.Data.DataColumn columnCompanyName;
             
-            private global::System.Data.DataColumn columnBalance;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AccountsTableDataTable() {
@@ -326,14 +324,6 @@ namespace AccountApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BalanceColumn {
-                get {
-                    return this.columnBalance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -369,11 +359,10 @@ namespace AccountApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccountsTableRow AddAccountsTableRow(string CompanyName, decimal Balance) {
+            public AccountsTableRow AddAccountsTableRow(string CompanyName) {
                 AccountsTableRow rowAccountsTableRow = ((AccountsTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        CompanyName,
-                        Balance};
+                        CompanyName};
                 rowAccountsTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAccountsTableRow);
                 return rowAccountsTableRow;
@@ -403,7 +392,6 @@ namespace AccountApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnCompanyName = base.Columns["CompanyName"];
-                this.columnBalance = base.Columns["Balance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -411,11 +399,8 @@ namespace AccountApplication {
             private void InitClass() {
                 this.columnCompanyName = new global::System.Data.DataColumn("CompanyName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompanyName);
-                this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBalance);
                 this.columnCompanyName.AllowDBNull = false;
                 this.columnCompanyName.MaxLength = 2147483647;
-                this.columnBalance.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -564,17 +549,6 @@ namespace AccountApplication {
                 }
                 set {
                     this[this.tableAccountsTable.CompanyNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Balance {
-                get {
-                    return ((decimal)(this[this.tableAccountsTable.BalanceColumn]));
-                }
-                set {
-                    this[this.tableAccountsTable.BalanceColumn] = value;
                 }
             }
         }
@@ -739,7 +713,6 @@ namespace AccountApplication.AccountsDBDataSetCompanyNameTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "AccountsTable";
             tableMapping.ColumnMappings.Add("CompanyName", "CompanyName");
-            tableMapping.ColumnMappings.Add("Balance", "Balance");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -756,8 +729,7 @@ namespace AccountApplication.AccountsDBDataSetCompanyNameTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        CompanyName, Balance\r\nFROM            AccountsTable\r\nORDER BY Purch" +
-                "aseDate";
+            this._commandCollection[0].CommandText = "SELECT     DISTINCT   CompanyName FROM            AccountsTable";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -12,22 +12,24 @@ namespace AccountApplication
     {
         Entry entry = null;
         AccountDetails accountDetail = null;
-        public Welcome()
+        String companyName = "";
+        public Welcome(String _companyName = "")
         {
             InitializeComponent();
+            this.companyName = _companyName;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
-            entry = new Entry();          
+            entry = new Entry(companyName);          
             entry.Show();
         }
 
         private void buttonView_Click(object sender, EventArgs e)
         {
-            this.Hide(); 
-            accountDetail = new AccountDetails();
+            this.Hide();
+            accountDetail = new AccountDetails(companyName);
             accountDetail.Show();
         }
 

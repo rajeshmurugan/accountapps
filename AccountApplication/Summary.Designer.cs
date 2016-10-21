@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewSummary = new System.Windows.Forms.DataGridView();
-            this.SNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonGo = new System.Windows.Forms.Button();
             this.comboBoxCompanyList = new System.Windows.Forms.ComboBox();
             this.accountsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,36 +45,11 @@
             this.dataGridViewSummary.AllowUserToAddRows = false;
             this.dataGridViewSummary.AllowUserToDeleteRows = false;
             this.dataGridViewSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSummary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SNo,
-            this.CompanyName,
-            this.Balance});
             this.dataGridViewSummary.Location = new System.Drawing.Point(7, 195);
             this.dataGridViewSummary.Name = "dataGridViewSummary";
             this.dataGridViewSummary.ReadOnly = true;
             this.dataGridViewSummary.Size = new System.Drawing.Size(633, 294);
             this.dataGridViewSummary.TabIndex = 0;
-            // 
-            // SNo
-            // 
-            this.SNo.HeaderText = "S.No";
-            this.SNo.Name = "SNo";
-            this.SNo.ReadOnly = true;
-            this.SNo.Width = 40;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.HeaderText = "Company Name";
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
-            this.CompanyName.Width = 400;
-            // 
-            // Balance
-            // 
-            this.Balance.HeaderText = "Balance";
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
-            this.Balance.Width = 150;
             // 
             // buttonGo
             // 
@@ -136,9 +108,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewSummary;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.ComboBox comboBoxCompanyList;
         private AccountsDBDataSetCompanyName accountsDBDataSetCompanyName;

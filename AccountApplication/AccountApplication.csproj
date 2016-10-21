@@ -184,10 +184,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\AccountsDB.mdf">
+    <Content Include="AccountsDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\AccountsDB_log.ldf">
+    <Content Include="AccountsDB_log.ldf">
       <DependentUpon>AccountsDB.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

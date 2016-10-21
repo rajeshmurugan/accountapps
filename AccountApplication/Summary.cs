@@ -34,7 +34,7 @@ namespace AccountApplication
             SqlConnection conn = new SqlConnection(Properties.Settings.Default.AccountsDBConnectionString);
             try
             {
-                string query = "SELECT SNo, CompanyName, Balance FROM AccountsTable WHERE ";
+                string query = "SELECT ROW_NUMBER() Over (Order by CompanyName) As [S.No], CompanyName, Balance FROM AccountsTable WHERE IsIncludePreviousBill = 'True'";
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 DataTable table = new DataTable();

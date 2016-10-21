@@ -12,9 +12,12 @@ namespace AccountApplication
     public partial class Entry : Form
     {
         Welcome welcome = null;
-        public Entry()
+        String companyName = "";
+        public Entry(String _companyName = "")
         {
             InitializeComponent();
+            this.companyName = _companyName;
+            textBoxCompanyName.Text = _companyName;
             welcome = new Welcome();
         }
 

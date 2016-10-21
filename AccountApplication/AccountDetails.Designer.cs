@@ -38,9 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.dataGridViewAccountDetails = new System.Windows.Forms.DataGridView();
-            this.accountsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.accountsDBDataSet = new AccountApplication.AccountsDBDataSet();
-            this.accountsTableTableAdapter = new AccountApplication.AccountsDBDataSetTableAdapters.AccountsTableTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountsDBDataSet = new AccountApplication.AccountsDBDataSet();
+            this.accountsTableTableAdapter = new AccountApplication.AccountsDBDataSetTableAdapters.AccountsTableTableAdapter();
+            this.buttonPrint = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountDetails)).BeginInit();
@@ -157,20 +159,6 @@
             this.dataGridViewAccountDetails.Size = new System.Drawing.Size(743, 299);
             this.dataGridViewAccountDetails.TabIndex = 6;
             // 
-            // accountsTableBindingSource
-            // 
-            this.accountsTableBindingSource.DataMember = "AccountsTable";
-            this.accountsTableBindingSource.DataSource = this.accountsDBDataSet;
-            // 
-            // accountsDBDataSet
-            // 
-            this.accountsDBDataSet.DataSetName = "AccountsDBDataSet";
-            this.accountsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // accountsTableTableAdapter
-            // 
-            this.accountsTableTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "CompanyName";
@@ -227,11 +215,41 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // accountsTableBindingSource
+            // 
+            this.accountsTableBindingSource.DataMember = "AccountsTable";
+            this.accountsTableBindingSource.DataSource = this.accountsDBDataSet;
+            // 
+            // accountsDBDataSet
+            // 
+            this.accountsDBDataSet.DataSetName = "AccountsDBDataSet";
+            this.accountsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // accountsTableTableAdapter
+            // 
+            this.accountsTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(759, 129);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(75, 25);
+            this.buttonPrint.TabIndex = 7;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // AccountDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 505);
+            this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.dataGridViewAccountDetails);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.groupBox2);
@@ -273,5 +291,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Button buttonPrint;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

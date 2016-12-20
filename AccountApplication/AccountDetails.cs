@@ -198,10 +198,10 @@ namespace AccountApplication
                         if (bNewPage)
                         {
                             //Draw Header
-                            e.Graphics.DrawString("Customer Summary",
+                            e.Graphics.DrawString("PSV Fruits Ltd",
                                 new Font(dataGridViewAccountDetails.Font, FontStyle.Bold),
                                 Brushes.Black, e.MarginBounds.Left,
-                                e.MarginBounds.Top - e.Graphics.MeasureString("Customer Summary",
+                                e.MarginBounds.Top - e.Graphics.MeasureString("PSV Fruits Ltd",
                                 new Font(dataGridViewAccountDetails.Font, FontStyle.Bold),
                                 e.MarginBounds.Width).Height - 13);
 
@@ -214,7 +214,7 @@ namespace AccountApplication
                                 (e.MarginBounds.Width - e.Graphics.MeasureString(strDate,
                                 new Font(dataGridViewAccountDetails.Font, FontStyle.Bold),
                                 e.MarginBounds.Width).Width),
-                                e.MarginBounds.Top - e.Graphics.MeasureString("Customer Summary",
+                                e.MarginBounds.Top - e.Graphics.MeasureString("PSV Fruits Ltd",
                                 new Font(new Font(dataGridViewAccountDetails.Font, FontStyle.Bold),
                                 FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 

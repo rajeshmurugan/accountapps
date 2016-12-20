@@ -46,8 +46,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxNotes = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxBillNumber = new System.Windows.Forms.TextBox();
+            this.textBoxItemName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.checkBoxPreviousBal = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -239,21 +239,21 @@
             this.label10.TabIndex = 13;
             this.label10.Text = "Bill Number:";
             // 
-            // textBoxNotes
+            // textBoxBillNumber
             // 
-            this.textBoxNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNotes.Location = new System.Drawing.Point(399, 455);
-            this.textBoxNotes.Name = "textBoxNotes";
-            this.textBoxNotes.Size = new System.Drawing.Size(138, 23);
-            this.textBoxNotes.TabIndex = 14;
+            this.textBoxBillNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBillNumber.Location = new System.Drawing.Point(399, 455);
+            this.textBoxBillNumber.Name = "textBoxBillNumber";
+            this.textBoxBillNumber.Size = new System.Drawing.Size(138, 23);
+            this.textBoxBillNumber.TabIndex = 14;
             // 
-            // textBox1
+            // textBoxItemName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(401, 190);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 23);
-            this.textBox1.TabIndex = 5;
+            this.textBoxItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxItemName.Location = new System.Drawing.Point(401, 190);
+            this.textBoxItemName.Name = "textBoxItemName";
+            this.textBoxItemName.Size = new System.Drawing.Size(313, 23);
+            this.textBoxItemName.TabIndex = 5;
             // 
             // label11
             // 
@@ -282,9 +282,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 612);
             this.Controls.Add(this.checkBoxPreviousBal);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxItemName);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBoxNotes);
+            this.Controls.Add(this.textBoxBillNumber);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxBaseRate);
@@ -333,8 +333,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxNotes;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxBillNumber;
+        private System.Windows.Forms.TextBox textBoxItemName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkBoxPreviousBal;
     }

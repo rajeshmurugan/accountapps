@@ -27,7 +27,10 @@ namespace AccountApplication
         }        
         private void buttonGo_Click(object sender, EventArgs e)
         {
+            if (!comboBoxCompanyList.SelectedItem.ToString().Equals(""))
+            {
 
+            }
         }
         private void FillSummaryInformation()
         {

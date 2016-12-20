@@ -40,6 +40,11 @@ namespace AccountApplication
                 MessageBox.Show("Please enter the company name", "Alert!!!", MessageBoxButtons.OK);
                 return;
             }
+            if (textBoxItemName.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Please check the item name", "Alert!!!", MessageBoxButtons.OK);
+                return;
+            }
             if (textBoxQuantity.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Please enter the Quantity detail", "Alert!!!", MessageBoxButtons.OK);
@@ -60,19 +65,31 @@ namespace AccountApplication
                 MessageBox.Show("Please enter the Balance detail", "Alert!!!", MessageBoxButtons.OK);
                 return;
             }
+            if (textBoxBillNumber.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Please enter the Bill number detail", "Alert!!!", MessageBoxButtons.OK);
+                return;
+            }
 
             SqlConnection conn = new SqlConnection(Properties.Settings.Default.AccountsDBConnectionString);
             try
             {
                 conn.Open();
-                SqlCommand commandInsert = new SqlCommand("INSERT INTO AccountsTable (CompanyName, PurchaseDate, Quantity, BaseRate, PaidAmount, Balance, Notes) VALUES (@CompanyName, @PurchaseDate, @Quantity, @BaseRate, @PaidAmount, @Balance, @Notes)", conn);
+                // If mention the previous balance then simply remove all existing balance
+                if (checkBoxPreviousBal.Checked)
+                {
+                    SqlCommand commandUpdate = new SqlCommand("UPDATE AccountsTable set IsIncludePreviousBill = 'False' WHERE companyName ='"+ textBoxCompanyName.Text.Trim() + "'", conn);
+                    commandUpdate.ExecuteNonQuery();
+                }
+                SqlCommand commandInsert = new SqlCommand("INSERT INTO AccountsTable (CompanyName, PurchaseDate, Quantity, BaseRate, PaidAmount, Balance, BillNumber, ItemName) VALUES (@CompanyName, @PurchaseDate, @Quantity, @BaseRate, @PaidAmount, @Balance, @BillNumber, @ItemName)", conn);
                 commandInsert.Parameters.AddWithValue("@CompanyName", textBoxCompanyName.Text.Trim());
                 commandInsert.Parameters.AddWithValue("@PurchaseDate", dateTimePickerDate.Text.Trim());
                 commandInsert.Parameters.AddWithValue("@Quantity", textBoxQuantity.Text.Trim());
                 commandInsert.Parameters.AddWithValue("@BaseRate", textBoxBaseRate.Text.Trim());
                 commandInsert.Parameters.AddWithValue("@PaidAmount", textBoxPaidAmount.Text.Trim());
                 commandInsert.Parameters.AddWithValue("@Balance", textBoxBalance.Text.Trim());
-                commandInsert.Parameters.AddWithValue("@Notes", textBoxNotes.Text.Trim());
+                commandInsert.Parameters.AddWithValue("@BillNumber", textBoxBillNumber.Text.Trim());
+                commandInsert.Parameters.AddWithValue("@ItemName", textBoxItemName.Text.Trim());
                 commandInsert.ExecuteNonQuery();
                 MessageBox.Show("Information has been added successfully", "Information", MessageBoxButtons.OK);
             }
@@ -94,7 +111,7 @@ namespace AccountApplication
             textBoxBaseRate.ResetText();
             textBoxPaidAmount.ResetText();
             textBoxBalance.ResetText();
-            textBoxNotes.ResetText();
+            textBoxBillNumber.ResetText();
         }
 
         private void Entry_FormClosing(object sender, FormClosingEventArgs e)

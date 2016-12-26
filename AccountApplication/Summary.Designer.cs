@@ -35,6 +35,11 @@
             this.accountsTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountsDBDataSetCompanyName = new AccountApplication.AccountsDBDataSetCompanyName();
             this.accountsTableTableAdapter = new AccountApplication.AccountsDBDataSetCompanyNameTableAdapters.AccountsTableTableAdapter();
+            this.buttonPrint = new System.Windows.Forms.Button();
+            this.printDocumentAccounts = new System.Drawing.Printing.PrintDocument();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSummary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountsTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountsDBDataSetCompanyName)).BeginInit();
@@ -53,7 +58,7 @@
             // 
             // buttonGo
             // 
-            this.buttonGo.Location = new System.Drawing.Point(507, 85);
+            this.buttonGo.Location = new System.Drawing.Point(351, 120);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(59, 26);
             this.buttonGo.TabIndex = 1;
@@ -63,13 +68,13 @@
             // 
             // comboBoxCompanyList
             // 
-            this.comboBoxCompanyList.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.accountsTableBindingSource, "CompanyName", true));
+            this.comboBoxCompanyList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBoxCompanyList.DataSource = this.accountsTableBindingSource;
             this.comboBoxCompanyList.DisplayMember = "CompanyName";
             this.comboBoxCompanyList.FormattingEnabled = true;
-            this.comboBoxCompanyList.Location = new System.Drawing.Point(35, 89);
+            this.comboBoxCompanyList.Location = new System.Drawing.Point(48, 120);
             this.comboBoxCompanyList.Name = "comboBoxCompanyList";
-            this.comboBoxCompanyList.Size = new System.Drawing.Size(426, 21);
+            this.comboBoxCompanyList.Size = new System.Drawing.Size(249, 21);
             this.comboBoxCompanyList.TabIndex = 2;
             this.comboBoxCompanyList.ValueMember = "CompanyName";
             // 
@@ -87,11 +92,62 @@
             // 
             this.accountsTableTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(556, 164);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(75, 25);
+            this.buttonPrint.TabIndex = 8;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
+            // printDocumentAccounts
+            // 
+            this.printDocumentAccounts.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentAccounts_BeginPrint);
+            this.printDocumentAccounts.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentAccounts_PrintPage);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(556, 34);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 32);
+            this.buttonAdd.TabIndex = 9;
+            this.buttonAdd.Text = "Add Details";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(556, 92);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 26);
+            this.buttonExit.TabIndex = 10;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.IndianRed;
+            this.label1.Location = new System.Drawing.Point(124, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(336, 36);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "PSV Fruits Ltd";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Summary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 509);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.comboBoxCompanyList);
             this.Controls.Add(this.buttonGo);
             this.Controls.Add(this.dataGridViewSummary);
@@ -113,5 +169,10 @@
         private AccountsDBDataSetCompanyName accountsDBDataSetCompanyName;
         private System.Windows.Forms.BindingSource accountsTableBindingSource;
         private AccountsDBDataSetCompanyNameTableAdapters.AccountsTableTableAdapter accountsTableTableAdapter;
+        private System.Windows.Forms.Button buttonPrint;
+        private System.Drawing.Printing.PrintDocument printDocumentAccounts;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Label label1;
     }
 }

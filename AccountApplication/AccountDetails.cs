@@ -13,7 +13,7 @@ namespace AccountApplication
 {
     public partial class AccountDetails : Form
     {
-        Welcome welcome = null;
+        Summary summary = null;
         String CompanyName = "";
         StringFormat strFormat; //Used to format the grid rows.
         ArrayList arrColumnLefts = new ArrayList();//Used to save left coordinates of columns
@@ -27,7 +27,7 @@ namespace AccountApplication
         public AccountDetails(String CompanyName = "R")
         {
             InitializeComponent();
-            welcome = new Welcome();
+            summary = new Summary();
             this.CompanyName = CompanyName;
         }
 
@@ -74,6 +74,7 @@ namespace AccountApplication
                 {
                     comboBoxCompanyName.Items.Add(DR[0]);
                 }
+                comboBoxCompanyName.SelectedItem = CompanyName;
             }
             catch (SqlException ex)
             {
@@ -127,24 +128,24 @@ namespace AccountApplication
         private void AccountDetails_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            welcome.Show();
+            summary.Show();
         }
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             //Open the print dialog
             PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDocument1;
+            printDialog.Document = printDocumentAccounts;
             printDialog.UseEXDialog = true;
             //Get the document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
-                printDocument1.DocumentName = "Test Page Print";
-                printDocument1.Print();
+                printDocumentAccounts.DocumentName = "Account Details";
+                printDocumentAccounts.Print();
             }
             //Open the print preview dialog
             PrintPreviewDialog objPPdialog = new PrintPreviewDialog();
-            objPPdialog.Document = printDocument1;
+            objPPdialog.Document = printDocumentAccounts;
             objPPdialog.ShowDialog();
         }
 
@@ -200,13 +201,12 @@ namespace AccountApplication
                             //Draw Header
                             e.Graphics.DrawString("PSV Fruits Ltd",
                                 new Font(dataGridViewAccountDetails.Font, FontStyle.Bold),
-                                Brushes.Black, e.MarginBounds.Left,
+                                Brushes.Blue, e.MarginBounds.Left,
                                 e.MarginBounds.Top - e.Graphics.MeasureString("PSV Fruits Ltd",
                                 new Font(dataGridViewAccountDetails.Font, FontStyle.Bold),
                                 e.MarginBounds.Width).Height - 13);
 
-                            String strDate = DateTime.Now.ToLongDateString() + " " +
-                                DateTime.Now.ToShortTimeString();
+                            String strDate = DateTime.Now.ToLongDateString();
                             //Draw Date
                             e.Graphics.DrawString(strDate,
                                 new Font(dataGridViewAccountDetails.Font, FontStyle.Bold), Brushes.Black,

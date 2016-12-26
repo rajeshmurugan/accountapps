@@ -109,12 +109,6 @@
     <Compile Include="Summary.Designer.cs">
       <DependentUpon>Summary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Welcome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Welcome.Designer.cs">
-      <DependentUpon>Welcome.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AccountDetails.resx">
       <DependentUpon>AccountDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,9 +126,6 @@
     </Compile>
     <EmbeddedResource Include="Summary.resx">
       <DependentUpon>Summary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Welcome.resx">
-      <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AccountsDBDataSet.xsc">
       <DependentUpon>AccountsDBDataSet.xsd</DependentUpon>
